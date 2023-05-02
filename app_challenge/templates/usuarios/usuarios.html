@@ -1,0 +1,21 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+<div class="container">
+    <h1>Listagem de users</h1>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>id</th>
+            <th>nome</th>
+            <th>idade</th>
+        </tr>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{usuario.id_usuario}}</td>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.idade}}</td>            
+            <td><a href="{% url 'delete' usuario.id_usuario %}">Deletar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
